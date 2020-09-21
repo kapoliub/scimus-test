@@ -1,0 +1,101 @@
+$main-color: #06aaac;
+$button-text-color: white;
+$main-padding: 10px;
+
+@mixin h1 {
+  font-size: 1.6em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+@mixin h4 {
+  font-size: 1.1em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+@mixin article-h1 {
+  @include h1;
+  text-align: right;
+}
+
+@mixin input {
+  max-height: 50px;
+  padding: 10px 20px;
+  border-radius: 0;
+  border: 1px solid grey;
+}
+
+@mixin link {
+  text-decoration: none;
+  // padding: 20px 120px;
+  color: $button-text-color;
+  // min-height: 50px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  &:hover {
+    color: $main-color;
+  }
+  &:active {
+    transform: scale(1.1);
+  }
+}
+
+@mixin button {
+  background-color: $main-color;
+  border: none;
+  width: 100%;
+  max-width: 200px;
+  height: 40px;
+
+  color: $button-text-color;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  &:hover {
+    color: black;
+  }
+  &:active {
+    transform: translateX(1px) translateY(1px);
+  }
+}
+
+@mixin post-wrapper {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: $main-padding;
+  background-color: #efefef;
+  img {
+    align-self: center;
+    max-width: 285px;
+    max-height: 285px;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  & > div {
+    padding: $main-padding;
+    padding-bottom: 0;
+  }
+  .btn {
+    float: right;
+    @include button;
+  }
+  .post {
+    .post-description {
+      color: #fa6029;
+      font-size: 0.8em;
+    }
+    h3 {
+      border-top: 1px solid grey;
+      color: $main-color;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+  }
+}

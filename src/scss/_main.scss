@@ -1,0 +1,319 @@
+// Write your styles here
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  text-decoration: none;
+  font: normal 300 15px/24px Roboto, Ubuntu, Cantarell, Helvetica, sans-serif;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.main-wrapper {
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100vh;
+    width: 100vw;
+    background: url(./../img/header_background_v1.jpg);
+    background-size: cover;
+    .logo {
+      img {
+        max-width: 230px;
+        width: 100%;
+      }
+    }
+    .top-wrapper {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      nav {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        height: 50px;
+        align-items: center;
+        a {
+          @include link;
+          text-align: center;
+          min-width: 33.333%;
+        }
+        a:nth-child(2) {
+          border-left: 2px solid $main-color;
+          border-right: 2px solid $main-color;
+        }
+      }
+    }
+    section {
+      text-align: center;
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      h1 {
+        margin-bottom: 20px;
+        text-align: center;
+        color: white;
+        @include h1;
+      }
+      .btn {
+        @include button;
+        padding: 15px 50px;
+        font-size: 0.9em;
+      }
+    }
+  }
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .toolbar {
+      text-align: right;
+      padding: $main-padding;
+      input {
+        @include input;
+      }
+    }
+
+    h1 {
+      @include article-h1;
+    }
+    .post-list {
+      article {
+        @include post-wrapper;
+      }
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    .about {
+      p {
+        padding: $main-padding;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    .contact-form {
+      h4 {
+        @include h4;
+        text-align: right;
+      }
+      form {
+        margin: 30px 0;
+        input {
+          @include input;
+        }
+        input[type="submit"] {
+          @include button;
+          float: right;
+        }
+        textarea {
+          @include input;
+          max-height: none;
+          resize: none;
+          margin-bottom: 20px;
+        }
+        .user-info {
+          display: flex;
+          justify-content: space-between;
+          label {
+            width: 49%;
+          }
+        }
+        label {
+          display: flex;
+          flex-direction: column;
+          text-align: right;
+          span {
+            color: $main-color;
+            font-size: 0.8em;
+          }
+        }
+      }
+    }
+  }
+  footer {
+    span {
+      padding: $main-padding;
+      font-size: 0.8em;
+    }
+  }
+}
+
+@media (max-width: 525px) {
+  .main-wrapper {
+    main {
+      .post-list {
+        article {
+          flex-direction: column;
+          align-items: center;
+          .btn {
+            max-width: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .main-wrapper {
+    header {
+      .logo {
+        img {
+          max-width: 150px;
+        }
+      }
+      .top-wrapper {
+        nav {
+          flex-direction: column;
+          width: 75%;
+          a {
+            padding: $main-padding;
+          }
+          a:nth-child(2) {
+            border: none;
+            border-top: 2px solid $main-color;
+            border-bottom: 2px solid $main-color;
+          }
+        }
+      }
+    }
+    main {
+      .contact-form {
+        form {
+          input[type="submit"] {
+            max-width: none;
+          }
+          .user-info {
+            flex-direction: column;
+            label {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
